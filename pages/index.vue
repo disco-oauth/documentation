@@ -1,81 +1,43 @@
 <template>
-  <div class="hero has-text-centered">
-    <div class="hero-head section">
-      <h1 class="title is-1">
-        <u>Disco-OAuth</u>
-      </h1>
-      <h2 class="title is-4">
-        <code>npm install --save disco-oauth</code><br />
-      </h2>
-    </div>
-    <div class="hero-body">
-      <div class="tags is-centered">
-        <a href="https://www.npmjs.com/package/disco-oauth" target="_blank"><img src="https://img.shields.io/npm/v/disco-oauth?style=for-the-badge" alt="Version" /></a>
-        <a href="https://www.npmjs.com/package/disco-oauth" target="_blank"><img src="https://img.shields.io/npm/dt/disco-oauth?style=for-the-badge" alt="NPM downloads" /></a>
-        <a href="https://www.npmjs.com/package/disco-oauth" target="_blank"><img src="https://img.shields.io/librariesio/release/npm/disco-oauth?style=for-the-badge" alt="Dependencies" /></a>
-        <a href="https://github.com/TheDrone7/disco-oauth/issues" target="_blank"><img src="https://img.shields.io/github/issues/TheDrone7/disco-oauth?style=for-the-badge" alt="Github issues" /></a>
-      </div>
-      <br />
-      <div class="columns">
-        <div class="column">
-          <div class="box">
-            <h1 class="title is-4">About</h1>
-            <p class="content has-text-left">
-              Disco-OAuth is a small <a href="https://nodejs.org/">Node.js</a> library that eases the implementation of
-              <a href="https://discordapp.com/developers/docs/topics/oauth2">Discord OAuth2 API</a> in your backend servers.
-              <br /><br />
-              It is an object-oriented library giving you the ease of use and good quality at the same time!
-              <br /><br />
-              This is also frequently updated to provide all the cool new stuff that discord launches for users and developers alike.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="box">
-            <h1 class="title is-4">Why disco-oauth?</h1>
-            <ul class="content has-text-left">
-              <li>Object-Oriented</li>
-              <li>Quick setup</li>
-              <li>Easy to use</li>
-              <li>Efficient</li>
-              <li>Fast</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-buttons">
-      <nuxt-link to="/docs" exact prefetch class="button is-success">Get Started</nuxt-link>
-      <a target="_blank" href="https://discord.gg/4mmeuEV" class="button blurple">Join Discord</a>
-      <hr />
-    </div>
-  </div>
+  <v-row justify="center" align="center">
+    <v-col cols="12" sm="8" md="6">
+      <v-card>
+        <v-card-title class="headline">
+          Disco-OAuth
+          <v-spacer />
+          <code class='text-subtitle-1' style="font-family: 'Fira Mono', monospace !important;">npm install --save disco-oauth</code>
+        </v-card-title>
+        <v-card-text>
+          <v-row justify='space-between' class='mx-0 my-4'>
+            <img src="https://img.shields.io/npm/v/disco-oauth?style=for-the-badge" alt="Version">
+            <img src="https://img.shields.io/npm/dt/disco-oauth?style=for-the-badge" alt="NPM downloads">
+            <img src="https://img.shields.io/github/issues/TheDrone7/disco-oauth?style=for-the-badge" alt="Github issues">
+          </v-row>
+          <hr class='my-3' />
+          <p>Disco-OAuth is a small Node.js library that eases the implementation of Discord OAuth2 API in your backend servers.</p>
+          <p>It is an object-oriented library giving you the ease of use and good quality at the same time!</p>
+          <p>This is also frequently updated to provide all the cool new stuff that discord launches for users and developers alike.</p>
+          <p>For more information on disco-oauth, check out the <nuxt-link exact to='/docs/get-started'>documentation</nuxt-link>.</p>
+          <p>If you have questions, please join the official <a href="https://discord.gg/4mmeuEV" target="_blank" title="chat">discord</a>.</p>
+          <p>Find a bug? Report it on the github <a href="https://github.com/TheDrone7/disco-oauth/issues" target="_blank" title="contribute">issue board</a>.</p>
+          <div class="text-xs-right"><em><small>&mdash; TheDrone7</small></em></div>
+          <hr class="my-3">
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="blurple" class='white--text' nuxt to="/docs">
+            Join Discord
+          </v-btn>
+          <v-spacer />
+          <v-btn color="primary" nuxt to="/docs/get-started">
+            Get Started
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+
 export default {}
 </script>
-
-<style>
-  ul {list-style-type: disc; margin-left: 12px;}
-  .blurple {
-    color: #ffffff;
-    background-color: #406da2;
-    border: 1px solid #406da2;
-  }
-  .blurple:hover {
-    border: 1px solid #405ca1;
-    background-color: #405ca1;
-  }
-  .box {
-    box-shadow: 0 0 12px #343434;
-    border-radius: 16px;
-  }
-  code {
-    background-color: black;
-    color: #33ff00;
-  }
-  .tags > * {
-    margin: 8px;
-  }
-</style>

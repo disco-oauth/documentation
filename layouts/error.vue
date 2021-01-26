@@ -1,22 +1,44 @@
 <template>
-  <div class="section has-text-centered">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#DBE1EC" viewBox="0 0 48 48">
-      <path d="M22 30h4v4h-4zm0-16h4v12h-4zm1.99-10C12.94 4 4 12.95 4 24s8.94 20 19.99 20S44 35.05 44 24 35.04 4 23.99 4zM24 40c-8.84 0-16-7.16-16-16S15.16 8 24 8s16 7.16 16 16-7.16 16-16 16z" />
-    </svg>
-    <h1 class="title">Error Occurred</h1>
-    <p class="subtitle" v-if="error">{{error.statusCode}} - {{error.message}}</p>
-  </div>
+  <v-app dark>
+    <h1 v-if="error.statusCode === 404">
+      {{ pageNotFound }}
+    </h1>
+    <h1 v-else>
+      {{ otherError }}
+    </h1>
+    <NuxtLink to="/">
+      Home page
+    </NuxtLink>
+  </v-app>
 </template>
 
 <script>
-  export default {
-    props: ['error'],
+export default {
+  layout: 'empty',
+  props: {
+    error: {
+      type: Object,
+      default: null
+    }
+  },
+  data () {
+    return {
+      pageNotFound: '404 Not Found',
+      otherError: 'An error occurred'
+    }
+  },
+  head () {
+    const title =
+      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+    return {
+      title
+    }
   }
+}
 </script>
 
-<style>
-  svg {
-    max-width: 90%;
-    width: 250px;
-  }
+<style scoped>
+h1 {
+  font-size: 20px;
+}
 </style>

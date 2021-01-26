@@ -1,64 +1,116 @@
-<!--suppress ALL -->
-<template @scroll="scrolled">
-  <div @scroll="scrolled">
-    <nav class="navbar" :class="{'is-fixed-top': hasScrolled}" role="navigation" aria-label="main navigation" id="navbar">
-      <div class="navbar-brand">
-        <nuxt-link exact to="/" prefetch class="navbar-item">Disco-OAuth</nuxt-link>
-        <a role="button" class="navbar-burger" @click="showMenu = !showMenu" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-        <div class="navbar-menu" :class="{'is-active': showMenu}">
-          <div class="navbar-start">
-            <nuxt-link exact class="navbar-item" v-for="link in links" :key="link.name" prefetch :to="link.href">{{ link.name }}</nuxt-link>
+<template>
+  <v-app dark>
+    <v-navigation-drawer v-model="drawer" clipped fixed app>
+      <v-list flat subheader>
+        <v-list-item :to="'/'" router exact>
+          <v-list-item-action><v-icon>mdi-home</v-icon></v-list-item-action>
+          <v-list-item-content><v-list-item-title>Home</v-list-item-title></v-list-item-content>
+        </v-list-item>
+        <v-list-group prepend-icon='mdi-book-open-page-variant'>
+          <template v-slot:activator><v-list-item-title>Docs</v-list-item-title></template>
+          <div v-for='(entries, titles) in items[version]' :key='titles'>
+            <v-subheader v-text='titles' />
+            <v-list-item v-for='entry in entries' :key='entry.title' :to='"/docs/" + version + entry.to' router exact>
+              <v-list-item-title v-text='entry.title' />
+            </v-list-item>
+            <v-divider v-if='titles !== "Typedefs"' />
           </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button" target="_blank" :class="`is-${link.color}`" v-for="link in buttons" :key="link.name" :href="link.href">{{ link.name }}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </nav>
-    <nuxt />
-  </div>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar fixed clipped-left app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title class='d-none d-md-block' v-text="title" />
+      <v-spacer class='d-none d-md-block' />
+      <v-select solo placeholder='Version' class='mx-8 mt-8 pa-0' :items='versions' v-model='version'></v-select>
+      <v-spacer />
+      <v-btn icon @click.stop='$vuetify.theme.dark = !$vuetify.theme.dark'><v-icon>mdi-theme-light-dark</v-icon></v-btn>
+      <v-btn icon v-for='ext in externals' :key='ext.icon' :href='ext.link' target='_blank'><v-icon>mdi-{{ ext.icon }}</v-icon></v-btn>
+    </v-app-bar>
+
+    <v-main class='overflow-auto'>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-main>
+
+    <v-footer :absolute="!fixed" app>
+      <span>&copy; {{ new Date().getFullYear() }} by disco-oauth.</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-  export default {
-    mounted() {
-      document.addEventListener('scroll', this.scrolled);
-    },
-    methods: {
-      scrolled() {
-        if (process.client){
-          this.scrollLength = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-          this.hasScrolled = (document.getElementById('navbar').scrollHeight <= (this.scrollLength + 50)) && window.location.href.split('/').pop() !== '';
+export default {
+  data () {
+    return {
+      dark: true,
+      drawer: false,
+      fixed: false,
+      version: '4.2.7',
+      versions: ['4.2.7'],
+      items: {
+        "4.2.7": {
+          "General": [
+            { title: 'Get Started', to: '/get-started' },
+            { title: 'FAQ', to: '/faq' },
+          ],
+          "Classes": [
+            { title: 'APIError', to: '/api-error' },
+            { title: 'Client', to: '/client' },
+            { title: 'Connection', to: '/connection' },
+            { title: 'Connections', to: '/connections' },
+            { title: 'Guild', to: '/guild' },
+            { title: 'Guilds', to: '/guilds' },
+            { title: 'User', to: '/user' }
+          ]
+        },
+      },
+      externals: [
+        {
+          icon: 'github',
+          name: 'GitHub',
+          link: 'https://github.com/TheDrone7/disco-oauth'
+        },
+        {
+          icon: 'npm',
+          name: 'NPM',
+          link: 'https://npmjs.com/package/disco-oauth'
         }
-      }
-    },
-    data() {
-      return {
-        showMenu: false,
-        scrollLength: 0,
-        hasScrolled: false,
-        links: [
-          {name: 'Documentation', href: '/docs'}
-        ],
-        buttons: [
-          {name: 'GitHub', href: 'https://github.com/TheDrone7/disco-oauth', color: 'success'},
-          {name: 'NPM', href: 'https://npmjs.com/package/disco-oauth', color: 'warning'}
-        ]
-      }
+      ],
+      title: 'Disco-OAuth'
+    }
+  },
+  computed: {
+    path() {
+      if (process.client) return window.location.pathname;
+      else return '/';
     }
   }
+}
 </script>
 
 <style>
-  .navbar-start {
-    margin-left: 12px;
-  }
+html, body {
+  overflow: hidden !important;
+}
+.overflow-auto {
+  overflow: auto;
+  max-height: 95vh;
+}
+</style>
+
+<style lang='scss'>
+@import '~/assets/variables.scss';
+
+code {
+  color: #ffffe0 !important;
+  font-family: $code-kbd-font-family !important;
+  overflow-x: auto;
+}
+
+.theme--light code {
+  color: #333300 !important;
+}
 </style>

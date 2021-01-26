@@ -1,22 +1,24 @@
 {
-  "name": "disco-oauth",
+  "name": "disco-oauth-docs",
   "version": "1.0.0",
-  "description": "A library to make oauth requests to discord. It is easy to use and implement in your app.",
-  "author": "TheDrone7",
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build && nuxt generate",
-    "start": "nuxt start"
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0"
+    "@nuxt/content": "^1.9.0",
+    "@nuxtjs/pwa": "^3.0.2",
+    "core-js": "^3.6.5",
+    "node-fetch": "^2.6.1",
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
+    "@nuxtjs/vuetify": "^1.11.2",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.1.2"
   }
 }
