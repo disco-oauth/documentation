@@ -10,14 +10,10 @@ export default {
       { hid: 'description', name: 'description', content: 'A node.js library for all your Discord OAuth2 needs!' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://disco-oauth.now.sh/' },
-      { property: 'og:title', content: 'Disco-OAuth' },
-      { property: 'og:description', content: 'A library to make oauth requests to discord. It is easy to use and implement in your app.' },
       { property: 'og:image', content: '/icon.png' },
 
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:url', content: 'https://disco-oauth.now.sh/' },
-      { property: 'twitter:title', content: 'Disco-OAuth' },
-      { property: 'twitter:description', content: 'A library to make oauth requests to discord. It is easy to use and implement in your app.' },
       { property: 'twitter:image', content: '/icon.png' },
     ],
     link: [

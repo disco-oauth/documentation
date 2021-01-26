@@ -39,5 +39,12 @@
 
 <script>
 
-export default {}
+export default {
+  meta: [
+    { property: 'og:title', content: 'Disco-OAuth' },
+    { property: 'og:description', content: 'A library to make oauth requests to discord. It is easy to use and implement in your app.' },
+    { property: 'twitter:title', content: 'Disco-OAuth' },
+    { property: 'twitter:description', content: 'A library to make oauth requests to discord. It is easy to use and implement in your app.' },
+  ]
+}
 </script>
