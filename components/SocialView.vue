@@ -15,7 +15,7 @@ export default {
     },
     image: {
       type: String,
-      default: '/icon.png'
+      default: '/favicon.ico'
     }
   },
 

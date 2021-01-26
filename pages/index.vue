@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <social-view title='Disco-OAuth' description='A library to make oauth requests to discord. It is easy to use and implement in your app.' />
+      <social-view title='Disco-OAuth' description='A library to make oauth requests to discord. It is easy to use and implement in your app.' image='/icon.png' />
       <v-card>
         <v-card-title class="headline">
           Disco-OAuth
