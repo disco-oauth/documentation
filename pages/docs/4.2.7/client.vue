@@ -35,7 +35,13 @@ export default {
     clientClass
   }),
   head: {
-    title: 'Client'
+    title: 'Client',
+    meta: [
+      { property: 'og:title', content: 'Client - Disco-OAuth' },
+      { property: 'og:description', content: clientClass.desc },
+      { property: 'twitter:title', content: 'Client - Disco-OAuth' },
+      { property: 'twitter:description', content: clientClass.desc },
+    ]
   }
 };
 </script>

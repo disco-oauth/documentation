@@ -15,11 +15,16 @@ import userClass from '~/data/4.2.7/user';
 export default {
   name: 'user',
   data: () => ({
-    fn: '.env',
     userClass
   }),
   head: {
-    title: 'User'
+    title: 'User',
+    meta: [
+      { property: 'og:title', content: 'User - Disco-OAuth' },
+      { property: 'og:description', content: userClass.desc },
+      { property: 'twitter:title', content: 'User - Disco-OAuth' },
+      { property: 'twitter:description', content: userClass.desc },
+    ]
   }
 };
 </script>

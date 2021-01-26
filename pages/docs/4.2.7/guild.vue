@@ -15,11 +15,16 @@ import guildClass from '~/data/4.2.7/guild';
 export default {
   name: 'guild',
   data: () => ({
-    fn: '.env',
     guildClass
   }),
   head: {
-    title: 'Guild'
+    title: 'Guild',
+    meta: [
+      { property: 'og:title', content: 'Guild - Disco-OAuth' },
+      { property: 'og:description', content: guildClass.desc },
+      { property: 'twitter:title', content: 'Guild - Disco-OAuth' },
+      { property: 'twitter:description', content: guildClass.desc },
+    ]
   }
 };
 </script>

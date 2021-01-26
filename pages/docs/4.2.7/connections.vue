@@ -23,11 +23,16 @@ import connectionsClass from '~/data/4.2.7/connections';
 export default {
   name: 'connections',
   data: () => ({
-    fn: '.env',
     connectionsClass
   }),
   head: {
-    title: 'Connections'
+    title: 'Connections',
+    meta: [
+      { property: 'og:title', content: 'Connections - Disco-OAuth' },
+      { property: 'og:description', content: connectionsClass.desc },
+      { property: 'twitter:title', content: 'Connections - Disco-OAuth' },
+      { property: 'twitter:description', content: connectionsClass.desc },
+    ]
   }
 };
 </script>

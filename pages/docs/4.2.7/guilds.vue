@@ -23,11 +23,16 @@ import guildsClass from '~/data/4.2.7/guilds';
 export default {
   name: 'guilds',
   data: () => ({
-    fn: '.env',
     guildsClass
   }),
   head: {
-    title: 'Guilds'
+    title: 'Guilds',
+    meta: [
+      { property: 'og:title', content: 'Guilds - Disco-OAuth' },
+      { property: 'og:description', content: guildsClass.desc },
+      { property: 'twitter:title', content: 'Guilds - Disco-OAuth' },
+      { property: 'twitter:description', content: guildsClass.desc },
+    ]
   }
 };
 </script>

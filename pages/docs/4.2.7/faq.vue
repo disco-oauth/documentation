@@ -35,7 +35,13 @@
 export default {
   name: 'faq',
   head: {
-    title: 'FAQ'
+    title: 'FAQ',
+    meta: [
+      { property: 'og:title', content: 'FAQ - Disco-OAuth' },
+      { property: 'og:description', content: 'Frequently asked questions or commonly encountered issues with disco-oauth.' },
+      { property: 'twitter:title', content: 'FAQ - Disco-OAuth' },
+      { property: 'twitter:description', content: 'Frequently asked questions or commonly encountered issues with disco-oauth.' },
+    ]
   }
 };
 </script>

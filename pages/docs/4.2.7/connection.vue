@@ -15,11 +15,16 @@ import connClass from '~/data/4.2.7/connection';
 export default {
   name: 'user',
   data: () => ({
-    fn: '.env',
     connClass
   }),
   head: {
-    title: 'Connection'
+    title: 'Connection',
+    meta: [
+      { property: 'og:title', content: 'Connection - Disco-OAuth' },
+      { property: 'og:description', content: connClass.desc },
+      { property: 'twitter:title', content: 'Connection - Disco-OAuth' },
+      { property: 'twitter:description', content: connClass.desc },
+    ]
   }
 };
 </script>

@@ -58,7 +58,13 @@ export default {
     }
   },
   head: {
-    title: 'Get Started'
+    title: 'Get Started',
+    meta: [
+      { property: 'og:title', content: 'Get Started - Disco-OAuth' },
+      { property: 'og:description', content: 'Get started with implementing Discord\'s OAuth2 API in your webapp with disco-oauth.' },
+      { property: 'twitter:title', content: 'Get Started - Disco-OAuth' },
+      { property: 'twitter:description', content: 'Get started with implementing Discord\'s OAuth2 API in your webapp with disco-oauth.' },
+    ]
   }
 };
 </script>

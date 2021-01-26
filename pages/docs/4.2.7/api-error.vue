@@ -37,7 +37,13 @@ export default {
     ]
   }),
   head: {
-    title: 'API Error'
+    title: 'API Error',
+    meta: [
+      { property: 'og:title', content: 'API Error - Disco-OAuth' },
+      { property: 'og:description', content: errorClass.desc },
+      { property: 'twitter:title', content: 'API Error - Disco-OAuth' },
+      { property: 'twitter:description', content: errorClass.desc },
+    ]
   }
 };
 </script>
