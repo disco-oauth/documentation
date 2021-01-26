@@ -26,7 +26,21 @@
       <v-select solo placeholder='Version' class='mx-8 mt-8 pa-0' :items='versions' v-model='version'></v-select>
       <v-spacer />
       <v-btn icon @click.stop='$vuetify.theme.dark = !$vuetify.theme.dark'><v-icon>mdi-theme-light-dark</v-icon></v-btn>
-      <v-btn icon v-for='ext in externals' :key='ext.icon' :href='ext.link' target='_blank'><v-icon>mdi-{{ ext.icon }}</v-icon></v-btn>
+      <v-btn class='d-none d-md-flex' icon v-for='ext in externals' :key='ext.icon' :href='ext.link' target='_blank'><v-icon>mdi-{{ ext.icon }}</v-icon></v-btn>
+      <v-menu
+        transition="slide-y-transition"
+        bottom
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class='d-flex d-md-none' icon v-bind="attrs" v-on="on"><v-icon>mdi-dots-vertical</v-icon></v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(ext, i) in externals" :key="i" :href='ext.link' target='_blank'>
+            <v-list-item-action><v-icon>mdi-{{ ext.icon }}</v-icon></v-list-item-action>
+            <v-list-item-title>{{ ext.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-main class='overflow-auto'>
@@ -69,6 +83,11 @@ export default {
       },
       externals: [
         {
+          icon: 'discord',
+          name: 'Discord',
+          link: 'https://discord.gg/4mmeuEV'
+        },
+        {
           icon: 'github',
           name: 'GitHub',
           link: 'https://github.com/TheDrone7/disco-oauth'
@@ -77,7 +96,7 @@ export default {
           icon: 'npm',
           name: 'NPM',
           link: 'https://npmjs.com/package/disco-oauth'
-        }
+        },
       ],
       title: 'Disco-OAuth'
     }
