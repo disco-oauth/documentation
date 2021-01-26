@@ -28,7 +28,7 @@ export default {
   loading: {
     color: colors.blue.base,
     failedColor: colors.deepOrange.accent4,
-    height: '4px',
+    height: '2px',
 
   },
 
