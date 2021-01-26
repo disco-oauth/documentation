@@ -1,6 +1,7 @@
 <template>
   <v-row class='mt-4' align='center' justify='center'>
     <v-col cols='12' md='8'>
+      <social-view :title='connClass.title + " - Disco-OAuth"' :description='connClass.desc' />
       <doc-class v-bind='connClass'>
         <template v-slot:constructor>
           <code class='d-block'>This class is not exported, so the constructor is skipped here.</code>
@@ -18,13 +19,7 @@ export default {
     connClass
   }),
   head: {
-    title: 'Connection',
-    meta: [
-      { property: 'og:title', content: 'Connection - Disco-OAuth' },
-      { property: 'og:description', content: connClass.desc },
-      { property: 'twitter:title', content: 'Connection - Disco-OAuth' },
-      { property: 'twitter:description', content: connClass.desc },
-    ]
+    title: 'Connection'
   }
 };
 </script>

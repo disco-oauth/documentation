@@ -1,6 +1,7 @@
 <template>
   <v-row class='mt-4' align='center' justify='center'>
     <v-col cols='12' md='8'>
+      <social-view :title='"FAQ - Disco-OAuth"' :description='"Frequently asked questions and commonly encountererd errors with disco-oauth."' />
       <doc-section title='FAQ'>
         <p>Here are some of the commonly asked questions, if you are encountering an issue, that isn't mentioned here, be sure to check out the <a href='https://github.com/TheDrone7/disco-oauth/issues' target='_blank'>GitHub issues board</a>.</p>
       </doc-section>
@@ -35,13 +36,7 @@
 export default {
   name: 'faq',
   head: {
-    title: 'FAQ',
-    meta: [
-      { property: 'og:title', content: 'FAQ - Disco-OAuth' },
-      { property: 'og:description', content: 'Frequently asked questions or commonly encountered issues with disco-oauth.' },
-      { property: 'twitter:title', content: 'FAQ - Disco-OAuth' },
-      { property: 'twitter:description', content: 'Frequently asked questions or commonly encountered issues with disco-oauth.' },
-    ]
+    title: 'FAQ'
   }
 };
 </script>

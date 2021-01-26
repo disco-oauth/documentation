@@ -7,14 +7,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'A node.js library for all your Discord OAuth2 needs!' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://disco-oauth.now.sh/' },
-      { property: 'og:image', content: '/icon.png' },
 
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:url', content: 'https://disco-oauth.now.sh/' },
-      { property: 'twitter:image', content: '/icon.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

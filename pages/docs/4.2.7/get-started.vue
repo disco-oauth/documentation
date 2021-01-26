@@ -1,6 +1,7 @@
 <template>
   <v-row class='mt-4' align='center' justify='center'>
     <v-col cols='12' md='8'>
+      <social-view :title='"Get Started - Disco-OAuth"' description="Get started with implementing Discord's OAuth2 API in your Node.js webapp disco-oauth." />
       <doc-section title='Getting Started'>
         <p class='my-0'>First of all, you are expected to have a fair knowledge of the following technologies:</p>
         <ul>
@@ -58,13 +59,7 @@ export default {
     }
   },
   head: {
-    title: 'Get Started',
-    meta: [
-      { property: 'og:title', content: 'Get Started - Disco-OAuth' },
-      { property: 'og:description', content: 'Get started with implementing Discord\'s OAuth2 API in your webapp with disco-oauth.' },
-      { property: 'twitter:title', content: 'Get Started - Disco-OAuth' },
-      { property: 'twitter:description', content: 'Get started with implementing Discord\'s OAuth2 API in your webapp with disco-oauth.' },
-    ]
+    title: 'Get Started'
   }
 };
 </script>

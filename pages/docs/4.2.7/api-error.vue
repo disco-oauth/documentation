@@ -1,6 +1,7 @@
 <template>
   <v-row class='mt-4' align='center' justify='center'>
     <v-col cols='12' md='8'>
+      <social-view :title='errorClass.title + " - Disco-OAuth"' :description='errorClass.desc' />
       <doc-class v-bind='errorClass'>
         <template v-slot:constructor>
           <code class='d-block'>This class is not exported, so the constructor is skipped here.</code>
@@ -37,13 +38,7 @@ export default {
     ]
   }),
   head: {
-    title: 'API Error',
-    meta: [
-      { property: 'og:title', content: 'API Error - Disco-OAuth' },
-      { property: 'og:description', content: errorClass.desc },
-      { property: 'twitter:title', content: 'API Error - Disco-OAuth' },
-      { property: 'twitter:description', content: errorClass.desc },
-    ]
+    title: 'API Error'
   }
 };
 </script>

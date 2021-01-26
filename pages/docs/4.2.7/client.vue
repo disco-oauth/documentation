@@ -1,6 +1,7 @@
 <template>
   <v-row class='mt-4' align='center' justify='center'>
     <v-col cols='12' md='8'>
+      <social-view :title='clientClass.title + " - Disco-OAuth"' :description='clientClass.desc' />
       <doc-class v-bind='clientClass'>
         <template v-slot:constructor>
           <code class='d-block'>
@@ -35,13 +36,7 @@ export default {
     clientClass
   }),
   head: {
-    title: 'Client',
-    meta: [
-      { property: 'og:title', content: 'Client - Disco-OAuth' },
-      { property: 'og:description', content: clientClass.desc },
-      { property: 'twitter:title', content: 'Client - Disco-OAuth' },
-      { property: 'twitter:description', content: clientClass.desc },
-    ]
+    title: 'Client'
   }
 };
 </script>
