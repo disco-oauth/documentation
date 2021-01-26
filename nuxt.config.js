@@ -25,6 +25,13 @@ export default {
     ]
   },
 
+  loading: {
+    color: colors.blue.base,
+    failedColor: colors.deepOrange.accent4,
+    height: '4px',
+
+  },
+
   css: [
     '~/assets/common.css'
   ],
@@ -39,8 +46,6 @@ export default {
   modules: [
     '@nuxtjs/pwa'
   ],
-
-  content: {},
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
@@ -73,6 +78,6 @@ export default {
   },
 
   build: {
-    analyze: false
+    analyze: true
   }
 }
