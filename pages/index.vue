@@ -17,18 +17,18 @@
           <p>Disco-OAuth is a small Node.js library that eases the implementation of Discord OAuth2 API in your backend servers.</p>
           <p>It is an object-oriented library giving you the ease of use and good quality at the same time!</p>
           <p>This is also frequently updated to provide all the cool new stuff that discord launches for users and developers alike.</p>
-          <p>For more information on disco-oauth, check out the <nuxt-link exact to='/docs/get-started'>documentation</nuxt-link>.</p>
+          <p>For more information on disco-oauth, check out the <nuxt-link exact to='/docs/4.2.7/get-started'>documentation</nuxt-link>.</p>
           <p>If you have questions, please join the official <a href="https://discord.gg/4mmeuEV" target="_blank" title="chat">discord</a>.</p>
           <p>Find a bug? Report it on the github <a href="https://github.com/TheDrone7/disco-oauth/issues" target="_blank" title="contribute">issue board</a>.</p>
           <div class="text-xs-right"><em><small>&mdash; TheDrone7</small></em></div>
           <hr class="my-3">
         </v-card-text>
         <v-card-actions>
-          <v-btn color="blurple" class='white--text' nuxt to="/docs">
+          <v-btn color="blurple" class='white--text' href='https://discord.gg/4mmeuEV'>
             Join Discord
           </v-btn>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/docs/get-started">
+          <v-btn color="primary" nuxt to="/docs/4.2.7/get-started">
             Get Started
           </v-btn>
         </v-card-actions>

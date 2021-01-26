@@ -37,7 +37,7 @@
 
       <v-card tile>
         <v-card-title>Next Steps</v-card-title>
-        <v-card-text>You are now ready to use the library, <nuxt-link to='/docs/client' exact>click here</nuxt-link> to view the documentation for the Client class.</v-card-text>
+        <v-card-text>You are now ready to use the library, <nuxt-link to='/docs/4.2.7/client' exact>click here</nuxt-link> to view the documentation for the Client class.</v-card-text>
       </v-card>
     </v-col>
   </v-row>
