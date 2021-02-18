@@ -85,7 +85,7 @@ export default {
         {
           icon: 'discord',
           name: 'Discord',
-          link: 'https://discord.gg/4mmeuEV'
+          link: 'https://discord.gg/TWmyuEeddz'
         },
         {
           icon: 'github',
