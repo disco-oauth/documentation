@@ -25,7 +25,7 @@
           <hr class="my-3">
         </v-card-text>
         <v-card-actions>
-          <v-btn color="blurple" class='white--text' href='https://discord.gg/https://discord.gg/TWmyuEeddz'>
+          <v-btn color="blurple" class='white--text' href='https://discord.gg/TWmyuEeddz'>
             Join Discord
           </v-btn>
           <v-spacer />
