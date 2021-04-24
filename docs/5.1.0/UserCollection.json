@@ -1,0 +1,91 @@
+[
+  {
+    "id": "UserCollection",
+    "longname": "UserCollection",
+    "name": "UserCollection",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Collection"
+    ],
+    "description": "The user collection class. This is a collection of the {User} object. This is used for caching.",
+    "meta": {
+      "lineno": 28,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 17
+  },
+  {
+    "id": "UserCollection#fetch",
+    "longname": "UserCollection#fetch",
+    "name": "fetch",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Fetches user's details and updates the cache.",
+    "memberof": "UserCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose details are required.",
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "If true, fetches data from the discord API, if set to false, fetches from the cache instead.",
+        "name": "refresh",
+        "defaultvalue": false
+      }
+    ],
+    "examples": [
+      "let myFavUser = myUserCollection.fetch('my-fav-user\\'s key'); // Gets from the collection if available.",
+      "let myFavUser = myUserCollection.fetch('my-fav-user\\'s key', true); // Gets from discord API only."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<User>"
+          ]
+        },
+        "description": "The user whose user key was provided."
+      }
+    ],
+    "meta": {
+      "lineno": 48,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "async": true,
+    "order": 19
+  },
+  {
+    "id": "UserCollection()",
+    "longname": "UserCollection",
+    "name": "UserCollection",
+    "kind": "constructor",
+    "description": "Creates a new user collection.",
+    "memberof": "UserCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "Same parameters as a normal collection.",
+        "name": "params",
+        "variable": true
+      }
+    ],
+    "order": 18
+  }
+]

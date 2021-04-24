@@ -1,76 +1,34 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   head: {
-    titleTemplate: '%s - Disco-OAuth',
-    title: 'Home',
+    title: 'Disco-OAuth',
+    titleTemplate: '%s | Disco-OAuth',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://disco-oauth.now.sh/' },
-
-      { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:url', content: 'https://disco-oauth.now.sh/' },
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
-  loading: {
-    color: colors.blue.base,
-    failedColor: colors.deepOrange.accent4,
-    height: '2px',
-
-  },
-
   css: [
-    '~/assets/common.css'
+    'vuesax/dist/vuesax.css',
+    '@/assets/theme.css'
   ],
-  plugins: [],
+
+  plugins: [
+    '@/plugins/vuesax',
+    { src: '@/plugins/docs-loader', mode: 'server' }
+  ],
 
   components: true,
 
   buildModules: [
-    '@nuxtjs/vuetify',
+    '@nuxtjs/stylelint-module',
   ],
 
-  modules: [
-    '@nuxtjs/pwa'
-  ],
+  modules: [],
 
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
-    theme: {
-      dark: true,
-      themes: {
-        light: {
-          primary: colors.blue.base,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.accent4,
-          error: colors.deepOrange.accent4,
-          success: colors.green.base,
-          blurple: '#7289DA'
-        },
-        dark: {
-          primary: colors.blue.base,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.darken2,
-          blurple: '#7289DA'
-        }
-      }
-    }
-  },
-
-  build: {
-    analyze: false
-  }
+  build: {}
 }

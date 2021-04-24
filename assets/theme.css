@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=K2D:wght@300&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css");
+
+* {
+  font-family: 'K2D', sans-serif !important;
+}
+
+:root {
+  --vs-theme-bg: #18191c;
+  --vs-theme-color: #fff;
+  --vs-theme-layout: #1e2023;
+  --vs-theme-bg2: #141417;
+  --vs-theme-code: #242427;
+  --vs-theme-code2: #ffffcc;
+
+  --vs-background: 30, 32, 35;
+  --vs-text: 255, 255, 255;
+  --vs-gray-1: 24, 25, 28;
+  --vs-gray-2: 20, 20, 23;
+  --vs-gray-3: 15, 16, 19;
+  --vs-gray-4: 10, 11, 14;
+  --vs-shadow-opacity: .3;
+  --vs-dark: 0, 0, 0;
+  --vs-background-opacity: .6;
+}
+
+a {
+  color: #2cccff;
+  text-decoration: none;
+  transition: all linear 100ms;
+}
+
+a:hover {
+  color: #9cffff;
+}

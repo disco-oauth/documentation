@@ -1,0 +1,67 @@
+[
+  {
+    "id": "Connections",
+    "longname": "Connections",
+    "name": "Connections",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Map"
+    ],
+    "description": "A collection of Connection objects.",
+    "meta": {
+      "lineno": 132,
+      "filename": "connection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 38
+  },
+  {
+    "id": "Connections#toJSON",
+    "longname": "Connections#toJSON",
+    "name": "toJSON",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the connections map to a JSON object.",
+    "memberof": "Connections",
+    "params": [],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 153,
+      "filename": "connection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 40
+  },
+  {
+    "id": "Connections()",
+    "longname": "Connections",
+    "name": "Connections",
+    "kind": "constructor",
+    "description": "Creates a new Connections list.",
+    "memberof": "Connections",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "Array.<object>"
+          ]
+        },
+        "description": "The array of connections data returned by the discord API.",
+        "name": "connections"
+      }
+    ],
+    "examples": [
+      "let myConnections = new Connections([{...}, {...}, ...]);"
+    ],
+    "order": 39
+  }
+]

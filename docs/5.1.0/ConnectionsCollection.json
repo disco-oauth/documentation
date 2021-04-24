@@ -1,0 +1,91 @@
+[
+  {
+    "id": "ConnectionsCollection",
+    "longname": "ConnectionsCollection",
+    "name": "ConnectionsCollection",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Collection"
+    ],
+    "description": "The connections collection class. This is not the collection of connections but the collection of the {Connection} object. This is used for caching.",
+    "meta": {
+      "lineno": 108,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 23
+  },
+  {
+    "id": "ConnectionsCollection#fetch",
+    "longname": "ConnectionsCollection#fetch",
+    "name": "fetch",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Fetches user's connections and updates the cache.",
+    "memberof": "ConnectionsCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "They user key of the user whose connections are to be fetched.",
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "If true, fetches connections from the discord API, if set to false, fetches from the cache instead.",
+        "name": "refresh",
+        "defaultvalue": false
+      }
+    ],
+    "examples": [
+      "let myFavConnections = myConnCollection.fetch('my-fav-user\\'s key'); // Gets from the collection if available.",
+      "let myFavConnections = myConnCollection.fetch('my-fav-user\\'s key', true); // Gets from discord API only."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<Connections>"
+          ]
+        },
+        "description": "The connections of the user whose user key was provided."
+      }
+    ],
+    "meta": {
+      "lineno": 128,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "async": true,
+    "order": 25
+  },
+  {
+    "id": "ConnectionsCollection()",
+    "longname": "ConnectionsCollection",
+    "name": "ConnectionsCollection",
+    "kind": "constructor",
+    "description": "Creates a new connections collection.",
+    "memberof": "ConnectionsCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "The same as a normal collection's parameters.",
+        "name": "params",
+        "variable": true
+      }
+    ],
+    "order": 24
+  }
+]

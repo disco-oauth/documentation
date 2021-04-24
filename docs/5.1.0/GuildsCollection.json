@@ -1,0 +1,91 @@
+[
+  {
+    "id": "GuildsCollection",
+    "longname": "GuildsCollection",
+    "name": "GuildsCollection",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Collection"
+    ],
+    "description": "The guilds collection class. This is not the collection of guilds but the collection of the {Guilds} object. This is used for caching.",
+    "meta": {
+      "lineno": 68,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 20
+  },
+  {
+    "id": "GuildsCollection#fetch",
+    "longname": "GuildsCollection#fetch",
+    "name": "fetch",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Fetches user's guilds and updates the cache.",
+    "memberof": "GuildsCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose guilds are to be fetched.",
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "If true, fetches guilds from the discord API, if set to false, fetches from the cache instead.",
+        "name": "refresh",
+        "defaultvalue": false
+      }
+    ],
+    "examples": [
+      "let myFavGuilds = myGuildCollection.fetch('my-fav-user\\'s key'); // Gets from the collection if available.",
+      "let myFavGuilds = myGuildCollection.fetch('my-fav-user\\'s key', true); // Gets from discord API only."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<Guilds>"
+          ]
+        },
+        "description": "The guilds of the user whose user key was provided."
+      }
+    ],
+    "meta": {
+      "lineno": 88,
+      "filename": "collection.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "async": true,
+    "order": 22
+  },
+  {
+    "id": "GuildsCollection()",
+    "longname": "GuildsCollection",
+    "name": "GuildsCollection",
+    "kind": "constructor",
+    "description": "Creates a new guilds collection.",
+    "memberof": "GuildsCollection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "Same as a normal collection's parameters.",
+        "name": "params",
+        "variable": true
+      }
+    ],
+    "order": 21
+  }
+]

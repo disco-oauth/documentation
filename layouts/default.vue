@@ -1,135 +1,121 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer v-model="drawer" clipped fixed app>
-      <v-list flat subheader>
-        <v-list-item :to="'/'" router exact>
-          <v-list-item-action><v-icon>mdi-home</v-icon></v-list-item-action>
-          <v-list-item-content><v-list-item-title>Home</v-list-item-title></v-list-item-content>
-        </v-list-item>
-        <v-list-group prepend-icon='mdi-book-open-page-variant'>
-          <template v-slot:activator><v-list-item-title>Docs</v-list-item-title></template>
-          <div v-for='(entries, titles) in items[version]' :key='titles'>
-            <v-subheader v-text='titles' />
-            <v-list-item v-for='entry in entries' :key='entry.title' :to='"/docs/" + version + entry.to' router exact>
-              <v-list-item-title v-text='entry.title' />
-            </v-list-item>
-            <v-divider v-if='titles !== "Typedefs"' />
+  <div>
+    <vs-navbar fixed center-collapsed v-model="active" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <template #left>
+        <h2>Disco-OAuth</h2>
+      </template>
+      <vs-navbar-item to="/" :active="active === 'home'" id="home" class="nav-item">
+        Home
+      </vs-navbar-item>
+      <vs-navbar-group class="nav-group">
+        Documentation
+        <template #items>
+          <div v-for="(lg, link) in links" :key="link" style="width: 100%; ">
+            <h3 class="title">{{ link }}</h3>
+            <vs-navbar-item v-for="(n, l) in lg" :key="l" :to="`/docs/${version}/${l}`" :active="active === 'docs-' + l" :id="'docs-' + l" class="nav-item">{{ n }}</vs-navbar-item>
           </div>
-        </v-list-group>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar fixed clipped-left app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class='d-none d-md-block' v-text="title" />
-      <v-spacer class='d-none d-md-block' />
-      <v-select solo placeholder='Version' class='mx-8 mt-8 pa-0' :items='versions' v-model='version'></v-select>
-      <v-spacer />
-      <v-btn icon @click.stop='$vuetify.theme.dark = !$vuetify.theme.dark'><v-icon>mdi-theme-light-dark</v-icon></v-btn>
-      <v-btn class='d-none d-md-flex' icon v-for='ext in externals' :key='ext.icon' :href='ext.link' target='_blank'><v-icon>mdi-{{ ext.icon }}</v-icon></v-btn>
-      <v-menu
-        transition="slide-y-transition"
-        bottom
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn class='d-flex d-md-none' icon v-bind="attrs" v-on="on"><v-icon>mdi-dots-vertical</v-icon></v-btn>
         </template>
-        <v-list>
-          <v-list-item v-for="(ext, i) in externals" :key="i" :href='ext.link' target='_blank'>
-            <v-list-item-action><v-icon>mdi-{{ ext.icon }}</v-icon></v-list-item-action>
-            <v-list-item-title>{{ ext.name }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-app-bar>
-
-    <v-main class='overflow-auto'>
-      <v-container>
-        <nuxt />
-      </v-container>
-    </v-main>
-
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }} by disco-oauth.</span>
-    </v-footer>
-  </v-app>
+      </vs-navbar-group>
+      <template #right>
+        <vs-select placeholder="Version" v-model="version">
+          <vs-option v-for="(ver, i) in versions" @click="$store.commit('change', ver)" :key="i" :label="'v' + ver" :value="ver">v{{ ver }}</vs-option>
+        </vs-select>
+        <vs-navbar-item href="https://discord.gg/TWmyuEeddz"><span class="mdi mdi-discord" style="font-size: 1.75rem;" /></vs-navbar-item>
+        <vs-navbar-item href="https://github.com/disco-oauth/disco-oauth"><span class="mdi mdi-github" style="font-size: 1.75rem;" /></vs-navbar-item>
+        <vs-navbar-item href="https://npmjs.com/package/disco-oauth"><span class="mdi mdi-npm" style="font-size: 1.75rem;" /></vs-navbar-item>
+      </template>
+    </vs-navbar>
+    <div class="page">
+      <Nuxt />
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      dark: true,
-      drawer: false,
-      fixed: false,
-      version: '4.2.7',
-      versions: ['4.2.7'],
-      items: {
-        "4.2.7": {
-          "General": [
-            { title: 'Get Started', to: '/get-started' },
-            { title: 'FAQ', to: '/faq' },
-          ],
-          "Classes": [
-            { title: 'APIError', to: '/api-error' },
-            { title: 'Client', to: '/client' },
-            { title: 'Connection', to: '/connection' },
-            { title: 'Connections', to: '/connections' },
-            { title: 'Guild', to: '/guild' },
-            { title: 'Guilds', to: '/guilds' },
-            { title: 'User', to: '/user' }
-          ]
-        },
-      },
-      externals: [
-        {
-          icon: 'discord',
-          name: 'Discord',
-          link: 'https://discord.gg/TWmyuEeddz'
-        },
-        {
-          icon: 'github',
-          name: 'GitHub',
-          link: 'https://github.com/TheDrone7/disco-oauth'
-        },
-        {
-          icon: 'npm',
-          name: 'NPM',
-          link: 'https://npmjs.com/package/disco-oauth'
-        },
-      ],
-      title: 'Disco-OAuth'
-    }
-  },
+  data: () => ({
+    active: 'home'
+  }),
   computed: {
-    path() {
-      if (process.client) return window.location.pathname;
-      else return '/';
+    version() {
+      return this.$store.state.version;
+    },
+    versions() {
+      return Object.keys(this.$store.state.versions);
+    },
+    links() {
+      return this.$store.state.versions[this.$store.state.version];
     }
   }
 }
 </script>
 
 <style>
-html, body {
-  overflow: hidden !important;
+html {
+  font-size: 12px !important;
+  word-spacing: 1px !important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
-.overflow-auto {
-  overflow: auto;
-  max-height: 95vh;
-}
-</style>
 
-<style lang='scss'>
-@import '~/assets/variables.scss';
+body {
+  background-color: var(--vs-theme-bg);
+  color: var(--vs-theme-color);
+  padding-bottom: 2rem;
+}
+
+button {
+  font-size: 1.5rem !important;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav-item, .nav-group > button {
+  font-size: 1.25rem !important;
+  font-weight: 300 !important;
+}
+
+.nav-item.active {
+  font-weight: bold !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.page {
+  margin-top: 7rem;
+}
+
+.center-all {
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 code {
-  color: #ffffe0 !important;
-  font-family: $code-kbd-font-family !important;
-  overflow-x: auto;
-}
-
-.theme--light code {
-  color: #333300 !important;
+  display: inline-block;
+  font-family: 'Fira Mono', monospace !important;
+  font-size: 1.2rem;
+  background-color: var(--vs-theme-code);
+  color: var(--vs-theme-code2);
+  padding: 0.25rem 0.75rem;
+  margin: 0.5rem 0;
+  line-height: 2.25rem;
 }
 </style>

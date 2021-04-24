@@ -1,0 +1,59 @@
+[
+  {
+    "id": "APIError",
+    "longname": "APIError",
+    "name": "APIError",
+    "kind": "class",
+    "scope": "global",
+    "description": "An error class depicting a discord API error.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The response from the discord API request.",
+        "name": "response"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The error message.",
+        "name": "message"
+      }
+    ],
+    "meta": {
+      "lineno": 7,
+      "filename": "api.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\errors"
+    },
+    "order": 13
+  },
+  {
+    "id": "APIError()",
+    "longname": "APIError",
+    "name": "APIError",
+    "kind": "constructor",
+    "description": "Generates a new discord API error.",
+    "memberof": "APIError",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "ServerResponse"
+          ]
+        },
+        "description": "The response from the discord API request.",
+        "name": "response"
+      }
+    ],
+    "examples": [
+      "new APIError({...});"
+    ],
+    "order": 14
+  }
+]

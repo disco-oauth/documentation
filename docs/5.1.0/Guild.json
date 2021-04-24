@@ -1,0 +1,215 @@
+[
+  {
+    "id": "Guild",
+    "longname": "Guild",
+    "name": "Guild",
+    "kind": "class",
+    "scope": "global",
+    "description": "A guild of the discord user who has authorized your app to have access to their data.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The guild's unique discord ID.",
+        "name": "id"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The guild's visible name.",
+        "name": "name"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The guild's icon hash.",
+        "name": "iconHash"
+      },
+      {
+        "type": {
+          "names": [
+            "Array.<string>"
+          ]
+        },
+        "description": "A list of the discord-enabled features of the guild.",
+        "name": "features"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the authorized user is the guild's owner.",
+        "name": "isOwner"
+      },
+      {
+        "type": {
+          "names": [
+            "Array.<string>"
+          ]
+        },
+        "description": "A list of permissions that the authorized user has in this guild.",
+        "name": "permissions"
+      },
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The timestamp of creation of the user's account.",
+        "name": "createdTimestamp"
+      },
+      {
+        "type": {
+          "names": [
+            "Date"
+          ]
+        },
+        "description": "The time of creation of the user's account.",
+        "name": "createdAt"
+      }
+    ],
+    "meta": {
+      "lineno": 41,
+      "filename": "guild.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 41
+  },
+  {
+    "id": "Guild#_parsePermissions",
+    "longname": "Guild#_parsePermissions",
+    "name": "_parsePermissions",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Parses the bitfield of permission into an array of literals.",
+    "memberof": "Guild",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The permissions as a bitfield.",
+        "name": "perms"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Array.<string>"
+          ]
+        },
+        "description": "The array of permission literals."
+      }
+    ],
+    "access": "private",
+    "meta": {
+      "lineno": 128,
+      "filename": "guild.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 51
+  },
+  {
+    "id": "Guild#iconUrl",
+    "longname": "Guild#iconUrl",
+    "name": "iconUrl",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Returns a url to the guild icon.",
+    "memberof": "Guild",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The size of the icon in pixels. (Defaults to 512)",
+        "name": "size",
+        "defaultvalue": 512
+      }
+    ],
+    "examples": [
+      "let myFavIcon = myFavUser.iconUrl(); // Gets a normal 512x512px icon.",
+      "let myFavIcon = myFavUser.iconUrl(1024); // Gets a 1024x1024px icon."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 146,
+      "filename": "guild.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 52
+  },
+  {
+    "id": "Guild#toJSON",
+    "longname": "Guild#toJSON",
+    "name": "toJSON",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the guild into a JSON Object",
+    "memberof": "Guild",
+    "params": [],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 156,
+      "filename": "guild.js",
+      "path": "E:\\Programs\\disco-oauth\\disco-oauth\\lib\\types"
+    },
+    "order": 53
+  },
+  {
+    "id": "Guild()",
+    "longname": "Guild",
+    "name": "Guild",
+    "kind": "constructor",
+    "description": "Creates a new Guild.",
+    "memberof": "Guild",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "The guild data returned by the discord API.",
+        "name": "data"
+      }
+    ],
+    "examples": [
+      "let myGuild = new Guild({...});"
+    ],
+    "order": 42
+  }
+]
