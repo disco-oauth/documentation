@@ -43,6 +43,7 @@ export default {
 .c-main {
   width: 100%;
   font-size: 1.35rem;
+  line-height: 2rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
@@ -65,6 +66,7 @@ export default {
 
 p {
   margin-top: 1.5rem;
+  width: 100%;
   margin-bottom: 1.5rem;
 }
 

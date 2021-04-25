@@ -16,6 +16,15 @@
           </div>
         </template>
       </vs-navbar-group>
+      <vs-navbar-group class="nav-group">
+        Guide
+        <template #items>
+          <div v-for="(lg, link) in guides" :key="link" style="width: 100%; ">
+            <h3 class="title">{{ link }}</h3>
+            <vs-navbar-item v-for="(n, l) in lg" :key="l" :to="`/guide/${l}`" :active="active === 'guide-' + l" :id="'guide-' + l" class="nav-item">{{ n }}</vs-navbar-item>
+          </div>
+        </template>
+      </vs-navbar-group>
       <template #right>
         <vs-select placeholder="Version" v-model="version">
           <vs-option v-for="(ver, i) in versions" @click="$store.commit('change', ver)" :key="i" :label="'v' + ver" :value="ver">v{{ ver }}</vs-option>
@@ -45,6 +54,20 @@ export default {
     },
     links() {
       return this.$store.state.versions[this.$store.state.version];
+    },
+    guides() {
+      return {
+        'Get Started': {
+          'intro': 'Introduction',
+          'discord-setup': 'Discord Setup',
+          'app-setup': 'Server Setup'
+        },
+        'Integrating the API': {
+          'the-client': 'Prepare client',
+          'authentication': 'Authentication',
+          'details': 'Fetching details'
+        }
+      }
     }
   }
 }
@@ -59,7 +82,21 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f1f1f1;
 }
 
 body {
@@ -97,6 +134,9 @@ button {
 
 .page {
   margin-top: 7rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 90vh;
 }
 
 .center-all {
@@ -105,6 +145,12 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.center-stuff {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -117,5 +163,17 @@ code {
   padding: 0.25rem 0.75rem;
   margin: 0.5rem 0;
   line-height: 2.25rem;
+  white-space: nowrap;
+}
+
+code * {
+  font-family: 'Fira Mono', monospace !important;
+}
+
+img {
+  max-width: 100%;
+  margin: 1rem 0;
+  border: 1px solid #666;
+  border-radius: 4px;
 }
 </style>

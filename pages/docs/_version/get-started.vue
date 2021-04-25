@@ -30,7 +30,7 @@
         <h2>Usage</h2>
       </template>
       <p>Now that the library is installed, you can use it by simply importing it to your app and creating an instance of the Client class.</p>
-      <code>
+      <code class="prettyprint" style="width: 100%">
         const OAuthClient = require('disco-oauth');<br />
         const client = new OAuthClient('my-discord-client-id', 'my-discord-client-secret');
       </code>
@@ -45,8 +45,14 @@
 <script>
 export default {
   name: "get-started",
+  mounted() {
+    PR.prettyPrint();
+  },
   async asyncData({ params, store }) {
     store.commit('change', params.version);
+  },
+  head: {
+    title: 'Get Started'
   }
 }
 </script>

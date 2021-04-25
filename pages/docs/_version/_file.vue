@@ -22,7 +22,8 @@
             </ul>
             <br />
             <h3>Example</h3>
-            <code v-for="example in classConstructor.examples" :key="example" v-text="example" />
+            <code style="width: 100%" class="prettyprint" v-for="example in classConstructor.examples" :key="example" v-text="example" />
+            <p v-if="!classConstructor.examples">No examples provided</p>
           </div>
           <hr class="c-divider" />
           <div class="container">
@@ -55,7 +56,8 @@
               </ul>
               <br />
               <h4>Example</h4>
-              <code v-for="ex in method.examples" :key="ex" v-text="ex" />
+              <code style="width: 100%" class="prettyprint" v-for="ex in method.examples" :key="ex" v-text="ex" />
+              <p v-if="!method.examples">No examples provided</p>
               <hr class="c-divider" /><br/>
             </div>
           </div>
@@ -77,6 +79,9 @@ export default {
     classConstructor: null,
     classMethods: null
   }),
+  mounted() {
+    PR.prettyPrint();
+  },
   async asyncData({ params, store }) {
     store.commit('change', params.version);
     if (Object.keys(store.state.docFiles).includes(params.version)) {
@@ -91,26 +96,23 @@ export default {
       else return { valid: false };
     }
     else return { valid: false };
+  },
+  head: {
+    title: 'Docs'
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 2rem 0 2rem 0;
 }
 
-.container:last-child {
-  margin-bottom: 0 !important;
-}
-
-.center-stuff {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .center-stuff > * {
   width: 100%;
+}
+
+.container:last-child {
+  margin-bottom: 0 !important;
 }
 </style>
