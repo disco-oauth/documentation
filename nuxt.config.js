@@ -34,7 +34,4 @@ export default {
   modules: [],
 
   build: {},
-  server: {
-    port: 4000
-  }
 }
