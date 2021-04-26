@@ -2,7 +2,7 @@
   <div class="center-all">
     <do-card footer="true">
       <template #header>
-        <div style="display: flex; justify-content: space-between; align-items: center">
+        <div class="big-header">
           <h2 style="display: flex; align-items: center;">Disco-OAuth <img style="margin-left: 1rem;" src="https://img.shields.io/npm/v/disco-oauth?style=for-the-badge" alt="Version" /></h2>
           <code>npm install --save disco-oauth</code>
         </div>
@@ -36,3 +36,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.big-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 872px) {
+  .big-header {
+    flex-direction: column;
+  }
+}
+</style>

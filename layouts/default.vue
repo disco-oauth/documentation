@@ -1,7 +1,10 @@
 <template>
   <div>
-    <vs-navbar fixed center-collapsed v-model="active" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <vs-navbar fixed center-collapsed right-collapsed v-model="active" style="padding-top: 1rem; padding-bottom: 1rem;">
       <template #left>
+        <vs-button icon shadow color="#fff" class="hide-large" @click="drawer = true" style="padding: 0 0.25rem; margin: 0 1.5rem 0 0;">
+          <span class="mdi mdi-menu" style="font-size: 1.75rem;" />
+        </vs-button>
         <h2>Disco-OAuth</h2>
       </template>
       <vs-navbar-item to="/" :active="active === 'home'" id="home" class="nav-item">
@@ -34,6 +37,31 @@
         <vs-navbar-item href="https://npmjs.com/package/disco-oauth"><span class="mdi mdi-npm" style="font-size: 1.75rem;" /></vs-navbar-item>
       </template>
     </vs-navbar>
+    <vs-sidebar absolute v-model="active" text-white :open.sync="drawer">
+      <vs-sidebar-item class="side-item" to="/" id="home">Home</vs-sidebar-item>
+      <vs-sidebar-group >
+        <template #header>
+          <vs-sidebar-item class="side-item" arrow>
+            <span style="margin-left: 1rem;">Documentation</span>
+          </vs-sidebar-item>
+        </template>
+        <div v-for="(lg, link) in links" :key="link" style="width: 100%; ">
+          <h3 style="margin-left: 1rem;" class="title">{{ link }}</h3>
+          <vs-sidebar-item v-for="(n, l) in lg" :key="l" :to="`/docs/${version}/${l}`" :active="active === 'docs-' + l" :id="'docs-' + l" class="side-item">{{ n }}</vs-sidebar-item>
+        </div>
+      </vs-sidebar-group>
+      <vs-sidebar-group >
+        <template #header>
+          <vs-sidebar-item class="side-item" arrow>
+            <span style="margin-left: 1rem;">Guide</span>
+          </vs-sidebar-item>
+        </template>
+        <div v-for="(lg, link) in guides" :key="link" style="width: 100%; ">
+          <h3 style="margin-left: 1rem;" class="title">{{ link }}</h3>
+          <vs-sidebar-item v-for="(n, l) in lg" :key="l" :to="`/guide/${l}`" :active="active === 'guide-' + l" :id="'guide-' + l" class="side-item">{{ n }}</vs-sidebar-item>
+        </div>
+      </vs-sidebar-group>
+    </vs-sidebar>
     <div class="page">
       <Nuxt />
     </div>
@@ -43,7 +71,8 @@
 <script>
 export default {
   data: () => ({
-    active: 'home'
+    active: 'home',
+    drawer: false
   }),
   computed: {
     version() {
@@ -74,6 +103,23 @@ export default {
 </script>
 
 <style>
+.hide-small {
+  display: none !important;
+}
+
+.hide-large {
+  display: block !important;
+}
+
+@media only screen and (min-width: 872px) {
+  .hide-small {
+    display: block !important;
+  }
+  .hide-large {
+    display: none !important;
+  }
+}
+
 html {
   font-size: 12px !important;
   word-spacing: 1px !important;
@@ -175,5 +221,10 @@ img {
   margin: 1rem 0;
   border: 1px solid #666;
   border-radius: 4px;
+}
+
+.side-item * {
+  font-size: 1.5rem !important;
+  font-weight: 300 !important;
 }
 </style>
