@@ -1,0 +1,274 @@
+[
+  {
+    "id": "User",
+    "longname": "User",
+    "name": "User",
+    "kind": "class",
+    "scope": "global",
+    "description": "A discord user who has authorized your app to have access to their data.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's discord username.",
+        "name": "username"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's locale.",
+        "name": "locale"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user has enabled 2-factor authentication.",
+        "name": "isMFAEnabled"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's discriminator.",
+        "name": "discriminator"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's unique discord ID.",
+        "name": "id"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's E-Mail ID.",
+        "name": "emailId"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user's E-Mail ID has been verified.",
+        "name": "emailVerified"
+      },
+      {
+        "type": {
+          "names": [
+            "Array.<string>"
+          ]
+        },
+        "description": "The user's profile's flags.",
+        "name": "userFlags"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's avatar hash.",
+        "name": "avatarHash"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's banner hash.",
+        "name": "bannerHash"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The premium subscription type.",
+        "name": "premiumType"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user is a discord bot.",
+        "name": "bot"
+      },
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The timestamp of the creation of the user's account.",
+        "name": "createdTimestamp"
+      },
+      {
+        "type": {
+          "names": [
+            "Date"
+          ]
+        },
+        "description": "The time of creation of the user's account.",
+        "name": "createdAt"
+      }
+    ],
+    "meta": {
+      "lineno": 19,
+      "filename": "user.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 59
+  },
+  {
+    "id": "User#avatarUrl",
+    "longname": "User#avatarUrl",
+    "name": "avatarUrl",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Returns the user's avatar's URl of desired size.",
+    "memberof": "User",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The size of the desired image (in pixels).",
+        "name": "size",
+        "defaultvalue": 512
+      }
+    ],
+    "examples": [
+      "let myFavAvatar = myFavUser.avatarUrl(); // Gets a normal 512x512px avatar.",
+      "let myFavAvatar = myFavUser.avatarUrl(1024); // Gets a 1024x1024px avatar."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The generated url to the user's avatar image."
+      }
+    ],
+    "meta": {
+      "lineno": 209,
+      "filename": "user.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 77
+  },
+  {
+    "id": "User#bannerUrl",
+    "longname": "User#bannerUrl",
+    "name": "bannerUrl",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Returns the user's banner's URl of desired size.",
+    "memberof": "User",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "number"
+          ]
+        },
+        "description": "The size of the desired image (in pixels).",
+        "name": "size",
+        "defaultvalue": 512
+      }
+    ],
+    "examples": [
+      "let myFavAvatar = myFavUser.bannerUrl(); // Gets a normal 512x512px avatar.",
+      "let myFavAvatar = myFavUser.bannerUrl(1024); // Gets a 1024x1024px avatar."
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The generated url to the user's banner image."
+      }
+    ],
+    "meta": {
+      "lineno": 224,
+      "filename": "user.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 78
+  },
+  {
+    "id": "User#toJSON",
+    "longname": "User#toJSON",
+    "name": "toJSON",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the user into a JSON object.",
+    "memberof": "User",
+    "params": [],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 236,
+      "filename": "user.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 79
+  },
+  {
+    "id": "User()",
+    "longname": "User",
+    "name": "User",
+    "kind": "constructor",
+    "description": "Creates a new discord user.",
+    "memberof": "User",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "The user data returned by discord API.",
+        "name": "data"
+      }
+    ],
+    "examples": [
+      "let myNewUser = new User({...});"
+    ],
+    "order": 60
+  }
+]

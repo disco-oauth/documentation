@@ -1,0 +1,447 @@
+[
+  {
+    "id": "Client",
+    "longname": "Client",
+    "name": "Client",
+    "kind": "class",
+    "scope": "global",
+    "description": "A discord OAuth2 client.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "Array.<string>"
+          ]
+        },
+        "description": "A list of scopes that the client will generate the authentication link for.",
+        "name": "scopes"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "A redirect URI from the list at discord application OAuth2 settings.",
+        "name": "redirectURI"
+      },
+      {
+        "type": {
+          "names": [
+            "UserCollection"
+          ]
+        },
+        "description": "A collection of {@link User} objects being used for caching.",
+        "name": "users"
+      },
+      {
+        "type": {
+          "names": [
+            "GuildsCollection"
+          ]
+        },
+        "description": "A collection of {@link Guilds} objects being used for caching.",
+        "name": "guilds"
+      },
+      {
+        "type": {
+          "names": [
+            "ConnectionsCollection"
+          ]
+        },
+        "description": "A collection of {@link Connections} objects being used for caching.",
+        "name": "connections"
+      },
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        },
+        "description": "The auth data generated for just one use. Contains link and state variable.",
+        "name": "auth"
+      }
+    ],
+    "meta": {
+      "lineno": 46,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "order": 1
+  },
+  {
+    "id": "Client#setScopes",
+    "longname": "Client#setScopes",
+    "name": "setScopes",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Set the scopes for future requests",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "Scope",
+            "Array.<Scope>"
+          ]
+        },
+        "description": "The list of scopes that the user will authorize.",
+        "name": "scopes",
+        "variable": true
+      }
+    ],
+    "examples": [
+      "myClient.setScopes('identify', 'guilds');",
+      "myClient.setScopes(['identify', 'email', 'connections']);"
+    ],
+    "chainable": true,
+    "meta": {
+      "lineno": 75,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "order": 3
+  },
+  {
+    "id": "Client#setRedirect",
+    "longname": "Client#setRedirect",
+    "name": "setRedirect",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Set the redirect URI for future requests.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "One of the redirect URI from discord application settings.",
+        "name": "redirectUri"
+      }
+    ],
+    "examples": [
+      "myClient.setRedirect('http://localhost:3000/login');"
+    ],
+    "chainable": true,
+    "meta": {
+      "lineno": 96,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "order": 4
+  },
+  {
+    "id": "Client#getAccess",
+    "longname": "Client#getAccess",
+    "name": "getAccess",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Gets the access token for the user to perform further functions.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The authorization code returned by discord after the authentication.",
+        "name": "code"
+      }
+    ],
+    "examples": [
+      "let userKey = myClient.getAccess(req.query.code);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<string>"
+          ]
+        },
+        "description": "The user key that will be used to fetch the user's data."
+      }
+    ],
+    "meta": {
+      "lineno": 129,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 6
+  },
+  {
+    "id": "Client#raw",
+    "longname": "Client#raw",
+    "name": "raw",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the user's key into the access token response sent by discord. Not recommended to use.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user's key which needs to be converted into the access token response.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let tokenResponse = myClient.raw(userKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<object>"
+          ]
+        },
+        "description": "tokenResponse The access token response returned by the discord for the user."
+      }
+    ],
+    "meta": {
+      "lineno": 169,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 7
+  },
+  {
+    "id": "Client#checkValidity",
+    "longname": "Client#checkValidity",
+    "name": "checkValidity",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Checks the validity of the access key.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key whose validity is to be checked.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let validityData = myClient.checkValidity(myUserKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        },
+        "description": "The validity data of the user key."
+      }
+    ],
+    "meta": {
+      "lineno": 186,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 8
+  },
+  {
+    "id": "Client#refreshToken",
+    "longname": "Client#refreshToken",
+    "name": "refreshToken",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Gets a new access token for the user whose access token has expired.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose access token is to be refreshed.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let newKey = myClient.refreshToken(oldUserKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<string>"
+          ]
+        },
+        "description": "The new user key."
+      }
+    ],
+    "meta": {
+      "lineno": 204,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 9
+  },
+  {
+    "id": "Client#getUser",
+    "longname": "Client#getUser",
+    "name": "getUser",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Gets the user whose user key is provided from the discord API.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose data is to be fetched.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let myFavUser = myClient.getUser(userKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<User>"
+          ]
+        },
+        "description": "The returned user."
+      }
+    ],
+    "meta": {
+      "lineno": 244,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 10
+  },
+  {
+    "id": "Client#getGuilds",
+    "longname": "Client#getGuilds",
+    "name": "getGuilds",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Gets the guilds of the user whose user key is provided from the discord API.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose guilds are to be fetched.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let myFavGuilds = myClient.getGuilds(userKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<Guilds>"
+          ]
+        },
+        "description": "The returned guilds."
+      }
+    ],
+    "meta": {
+      "lineno": 274,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 11
+  },
+  {
+    "id": "Client#getConnections",
+    "longname": "Client#getConnections",
+    "name": "getConnections",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Gets the connected third-party accounts of the user whose user key is provided from the discord API.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The user key of the user whose connections are to be fetched.",
+        "name": "key"
+      }
+    ],
+    "examples": [
+      "let myFavConnections = myClient.getConnections(userKey);"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Promise.<Connections>"
+          ]
+        },
+        "description": "The returned connections."
+      }
+    ],
+    "meta": {
+      "lineno": 304,
+      "filename": "client.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib"
+    },
+    "async": true,
+    "order": 12
+  },
+  {
+    "id": "Client()",
+    "longname": "Client",
+    "name": "Client",
+    "kind": "constructor",
+    "description": "Create a new OAuth2 Client.",
+    "memberof": "Client",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The discord application's client ID.",
+        "name": "clientId"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The discord application's client secret.",
+        "name": "clientSecret"
+      }
+    ],
+    "examples": [
+      "new Client('my-client-id', 'my-super-secret-client-secret');"
+    ],
+    "order": 2
+  }
+]

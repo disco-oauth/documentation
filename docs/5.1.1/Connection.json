@@ -1,0 +1,147 @@
+[
+  {
+    "id": "Connection",
+    "longname": "Connection",
+    "name": "Connection",
+    "kind": "class",
+    "scope": "global",
+    "description": "A third-party connection of the discord user who has authorized your app to have access to their data.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The id of the third-party account.",
+        "name": "id"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The username of the third-party account.",
+        "name": "name"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The name of the service providing the third-party account.",
+        "name": "service"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user has revoked this connection.",
+        "name": "isRevoked"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user has verified this connection.",
+        "name": "isVerified"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether the user has enabled friend synchronization.",
+        "name": "friendSync"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether to show the activity in the connected account in Rich Presence.",
+        "name": "showActivity"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether is account is visible on the user's profile.",
+        "name": "isPublic"
+      },
+      {
+        "type": {
+          "names": [
+            "Array.<Integration>"
+          ]
+        },
+        "description": "A array of integration objects.",
+        "name": "integrations"
+      }
+    ],
+    "meta": {
+      "lineno": 16,
+      "filename": "connection.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 26
+  },
+  {
+    "id": "Connection#toJSON",
+    "longname": "Connection#toJSON",
+    "name": "toJSON",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the connection into a JSON object.",
+    "memberof": "Connection",
+    "params": [],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 111,
+      "filename": "connection.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 37
+  },
+  {
+    "id": "Connection()",
+    "longname": "Connection",
+    "name": "Connection",
+    "kind": "constructor",
+    "description": "Creates a new connection.",
+    "memberof": "Connection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        },
+        "description": "The connection object data returned by the discord API.",
+        "name": "data"
+      }
+    ],
+    "examples": [
+      "let myConnection = new Connection({...});"
+    ],
+    "order": 27
+  }
+]

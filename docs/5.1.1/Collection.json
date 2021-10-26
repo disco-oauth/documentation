@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Collection",
+    "longname": "Collection",
+    "name": "Collection",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Map"
+    ],
+    "description": "A collection class that can be used to store and fetch data.",
+    "properties": [
+      {
+        "type": {
+          "names": [
+            "Client"
+          ]
+        },
+        "description": "The client that contains this collection.",
+        "name": "client"
+      }
+    ],
+    "meta": {
+      "lineno": 7,
+      "filename": "collection.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 15
+  },
+  {
+    "id": "Collection()",
+    "longname": "Collection",
+    "name": "Collection",
+    "kind": "constructor",
+    "description": "Creates a new discord OAuth2 collection.",
+    "memberof": "Collection",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "Client"
+          ]
+        },
+        "description": "The client who owns this collection.",
+        "name": "client"
+      },
+      {
+        "type": {
+          "names": [
+            "Array.<object>"
+          ]
+        },
+        "description": "The set of default values (each value object must have a 'id' field).",
+        "name": "values"
+      }
+    ],
+    "examples": [
+      "let myCollection = new Collection(myClient, [{...}, {...}, ...]);"
+    ],
+    "order": 16
+  }
+]

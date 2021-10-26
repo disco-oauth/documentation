@@ -1,0 +1,66 @@
+[
+  {
+    "id": "Guilds",
+    "longname": "Guilds",
+    "name": "Guilds",
+    "kind": "class",
+    "scope": "global",
+    "augments": [
+      "Map"
+    ],
+    "description": "A collection of Guild objects.",
+    "meta": {
+      "lineno": 190,
+      "filename": "guild.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 54
+  },
+  {
+    "id": "Guilds#toJSON",
+    "longname": "Guilds#toJSON",
+    "name": "toJSON",
+    "kind": "function",
+    "scope": "instance",
+    "description": "Converts the guilds collection into a JSON object.",
+    "memberof": "Guilds",
+    "params": [],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "object"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "lineno": 209,
+      "filename": "guild.js",
+      "path": "C:\\Users\\hsbha\\OneDrive\\Desktop\\Projects\\disco-oauth\\lib\\types"
+    },
+    "order": 56
+  },
+  {
+    "id": "Guilds()",
+    "longname": "Guilds",
+    "name": "Guilds",
+    "kind": "constructor",
+    "memberof": "Guilds",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "Array.<object>"
+          ]
+        },
+        "description": "The array of guilds data returned by the discord API.",
+        "name": "guilds"
+      }
+    ],
+    "examples": [
+      "let myGuilds = new Guilds([{...}, {...}, ...]);"
+    ],
+    "order": 55
+  }
+]
