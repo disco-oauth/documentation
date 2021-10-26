@@ -1,8 +1,27 @@
 const versions = {};
 
 export const state = () => ({
-  version: '5.1.0',
+  version: '5.1.1',
   versions: {
+    '5.1.1': {
+      'General': {
+        'get-started': 'Get Started',
+        'faq': 'FAQ'
+      },
+      'Classes': {
+        'api-error': 'APIError',
+        'client': 'Client',
+        'collection': 'Collection',
+        'connection': 'Connection',
+        'connections': 'Connections',
+        'connections-collection': 'ConnectionsCollection',
+        'guild': 'Guild',
+        'guilds': 'Guilds',
+        'guilds-collection': 'GuildsCollection',
+        'user': 'User',
+        'user-collection': 'UserCollection'
+      }
+    },
     '5.1.0': {
       'General': {
         'get-started': 'Get Started',
